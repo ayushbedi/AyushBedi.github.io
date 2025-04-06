@@ -305,18 +305,144 @@ ON
         </section>
         
         <a href="portfolio.html" class="back-button">← Back to Portfolio</a>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bellabeat Activity Analysis</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .analysis-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+        
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #2c3e50;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        tr:hover {
+            background-color: #e6f7ff;
+        }
+        
+        .sql-query {
+            margin-bottom: 20px;
+        }
+        
+        .results-table {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="analysis-container">
+        <h2>Daily Activity Summary Metrics</h2>
+        
+        <div class="sql-query">
+            <h3>SQL Query</h3>
+            <pre><code>SELECT
+    AVG(TotalSteps) AS avg_steps,
+    AVG(TotalDistance) AS avg_distance,
+    AVG(Calories) AS avg_calories,
+    AVG(VeryActiveMinutes) AS avg_very_active_minutes,
+    AVG(FairlyActiveMinutes) AS avg_fairly_active_minutes,
+    AVG(LightlyActiveMinutes) AS avg_lightly_active_minutes,
+    AVG(SedentaryMinutes) AS avg_sedentary_minutes
+FROM 
+    dailyactivity_merged dm</code></pre>
+        </div>
+        
+        <div class="results-table">
+            <h3>Results</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Average Steps</th>
+                        <th>Average Distance (miles)</th>
+                        <th>Average Calories</th>
+                        <th>Very Active Minutes</th>
+                        <th>Fairly Active Minutes</th>
+                        <th>Lightly Active Minutes</th>
+                        <th>Sedentary Minutes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>6,546.56</td>
+                        <td>4.66</td>
+                        <td>2,189.45</td>
+                        <td>16.62</td>
+                        <td>13.07</td>
+                        <td>170.07</td>
+                        <td>995.28</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="analysis-insights">
+            <h3>Key Insights</h3>
+            <ul>
+                <li>Users average 6,547 steps per day, below the recommended 10,000 steps</li>
+                <li>Sedentary time (995 minutes) accounts for most of the day (~16.5 hours)</li>
+                <li>Only about 30 minutes per day are spent in moderate or vigorous activity</li>
+                <li>Calorie burn averages align with moderately active lifestyles</li>
+            </ul>
+        </div>
     </div>
 </body>
-<div class="sql-section">
-    <h3>Activity by Day of Week</h3>
-    <pre><code>SELECT day_of_week, avg_steps FROM activity_by_week;</code></pre>
-    <div class="output">
-        <table>
-            <tr><th>Day of Week</th><th>Avg Steps</th></tr>
-            <tr><td>Monday</td><td>8,124</td></tr>
-            <tr><td>Tuesday</td><td>7,856</td></tr>
-            <!-- Add more rows -->
-        </table>
-    </div>
-</div>
 </html>
