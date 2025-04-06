@@ -322,17 +322,20 @@ FROM
     dailyactivity_merged</code></pre>
     </div>
     
-    <div class="results-table">
-        <table class="data-table">
+   <div class="results-table">
+    <table class="data-table">
+        <thead>
             <tr>
-                <th>avg_steps</th>
-                <th>avg_distance</th>
-                <th>avg_calories</th>
-                <th>avg_very_active_minutes</th>
-                <th>avg_fairly_active_minutes</th>
-                <th>avg_lightly_active_minutes</th>
-                <th>avg_sedentary_minutes</th>
+                <th>Avg Steps</th>
+                <th>Avg Distance</th>
+                <th>Avg Calories</th>
+                <th>Avg Very Active (min)</th>
+                <th>Avg Fairly Active (min)</th>
+                <th>Avg Lightly Active (min)</th>
+                <th>Avg Sedentary (min)</th>
             </tr>
+        </thead>
+        <tbody>
             <tr>
                 <td>6,546.56</td>
                 <td>4.66</td>
@@ -342,7 +345,49 @@ FROM
                 <td>170.07</td>
                 <td>995.28</td>
             </tr>
-        </table>
-    </div>
+        </tbody>
+    </table>
 </div>
+
+<style>
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.data-table th {
+    background-color: #3498db;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #2980b9;
+}
+
+.data-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+}
+
+.data-table tr:hover td {
+    background-color: #f1f9ff;
+}
+
+@media (max-width: 768px) {
+    .data-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .data-table th, 
+    .data-table td {
+        padding: 8px 10px;
+    }
+}
+</style>
 </html>
