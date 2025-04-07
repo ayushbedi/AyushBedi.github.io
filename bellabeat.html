@@ -175,6 +175,155 @@
             <h3>Tools Used</h3>
             <p>SQL (BigQuery), Python (Pandas, Matplotlib, Seaborn), Tableau, Google Sheets</p>
         </section>
+
+    <!-- Unique Users Section -->
+<div class="analysis-section">
+    <h3>User Participation</h3>
+    
+    <div class="sql-query">
+        <pre><code>-- Count unique users
+SELECT COUNT(DISTINCT Id) AS unique_users 
+FROM dailyactivity_merged</code></pre>
+    </div>
+    
+    <div class="results-table">
+        <table class="data-table">
+            <tr>
+                <th>Unique Users</th>
+            </tr>
+            <tr>
+                <td>35</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Date Range Section -->
+<div class="analysis-section">
+    <h3>Data Collection Period</h3>
+    
+    <div class="sql-query">
+        <pre><code>-- Date range of data
+SELECT 
+    MIN(ActivityDate) AS start_date, 
+    MAX(ActivityDate) AS end_date 
+FROM dailyactivity_merged</code></pre>
+    </div>
+    
+    <div class="results-table">
+        <table class="data-table">
+            <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+            <tr>
+                <td>3/12/2016</td>
+                <td>4/9/2016</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- 10,000 Steps Section -->
+<div class="analysis-section">
+    <h3>Activity Compliance</h3>
+    
+    <div class="sql-query">
+        <pre><code>-- Percentage of days meeting 10,000 steps
+SELECT 
+    (COUNT(CASE WHEN TotalSteps >= 10000 THEN 1 END) * 100.0 / COUNT(*)) 
+    AS percent_meeting_10k_steps
+FROM dailyactivity_merged</code></pre>
+    </div>
+    
+    <div class="results-table">
+        <table class="data-table">
+            <tr>
+                <th>% Meeting 10K Steps</th>
+            </tr>
+            <tr>
+                <td>27.79%</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Top Active Users Section -->
+<div class="analysis-section">
+    <h3>Top 10 Most Active Users</h3>
+    
+    <div class="sql-query">
+        <pre><code>-- Top 10 most active users
+SELECT 
+    Id,
+    AVG(TotalSteps) AS avg_steps,
+    AVG(VeryActiveMinutes) AS avg_very_active
+FROM dailyactivity_merged
+GROUP BY Id
+ORDER BY avg_steps DESC
+LIMIT 10</code></pre>
+    </div>
+    
+    <div class="results-table">
+        <table class="data-table">
+            <tr>
+                <th>User ID</th>
+                <th>Avg Steps</th>
+                <th>Avg Vigorous Activity (min)</th>
+            </tr>
+            <tr>
+                <td>8877689391</td>
+                <td>17,417.08</td>
+                <td>66.83</td>
+            </tr>
+            <tr>
+                <td>8053475328</td>
+                <td>14,844.36</td>
+                <td>84.82</td>
+            </tr>
+            <tr>
+                <td>6962181067</td>
+                <td>12,639.71</td>
+                <td>35.36</td>
+            </tr>
+            <tr>
+                <td>7007744171</td>
+                <td>12,260.33</td>
+                <td>44.67</td>
+            </tr>
+            <tr>
+                <td>2022484408</td>
+                <td>12,174.92</td>
+                <td>40.08</td>
+            </tr>
+            <tr>
+                <td>1503960366</td>
+                <td>11,640.53</td>
+                <td>35.84</td>
+            </tr>
+            <tr>
+                <td>2347167796</td>
+                <td>9,800.07</td>
+                <td>11.80</td>
+            </tr>
+            <tr>
+                <td>1644430081</td>
+                <td>9,274.80</td>
+                <td>14.80</td>
+            </tr>
+            <tr>
+                <td>3977333714</td>
+                <td>8,663.92</td>
+                <td>12.17</td>
+            </tr>
+            <tr>
+                <td>5577150313</td>
+                <td>8,608.18</td>
+                <td>81.82</td>
+            </tr>
+        </table>
+    </div>
+</div>
         
         <section>
             <h2>Data Analysis with SQL</h2>
