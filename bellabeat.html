@@ -325,6 +325,44 @@ LIMIT 10</code></pre>
     </div>
 </div>
         
+<div class="content">  <!-- Added wrapper div for consistency -->
+    <h2>Daily Activity Averages</h2>  <!-- Optional title (as in prior subpage) -->
+    <table>
+        <tr>
+            <th colspan="7">
+                <pre><code>SELECT
+    AVG(TotalSteps) AS avg_steps,
+    AVG(TotalDistance) AS avg_distance,
+    AVG(Calories) AS avg_calories,
+    AVG(VeryActiveMinutes) AS avg_very_active_minutes,
+    AVG(FairlyActiveMinutes) AS avg_fairly_active_minutes,
+    AVG(LightlyActiveMinutes) AS avg_lightly_active_minutes,
+    AVG(SedentaryMinutes) AS avg_sedentary_minutes
+FROM 
+    dailyactivity_merged dm</code></pre>
+            </th>
+        </tr>
+        <tr>
+            <th>avg_steps</th>
+            <th>avg_distance</th>
+            <th>avg_calories</th>
+            <th>avg_very_active_minutes</th>
+            <th>avg_fairly_active_minutes</th>
+            <th>avg_lightly_active_minutes</th>
+            <th>avg_sedentary_minutes</th>
+        </tr>
+        <tr class="odd">
+            <td>6,546.5624</td>
+            <td>4.6635229715</td>
+            <td>2,189.453</td>
+            <td>16.6236</td>
+            <td>13.07</td>
+            <td>170.07</td>
+            <td>995.2823</td>
+        </tr>
+    </table>
+</div>  <!-- Closing wrapper div -->
+        
         <section>
             <h2>Data Analysis with SQL</h2>
             
